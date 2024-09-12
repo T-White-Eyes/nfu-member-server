@@ -1,8 +1,11 @@
 package com.nfu.member
 
+import com.nfu.member.constant.jpa.time.DateTimeProviderName
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 
+@EnableJpaAuditing(dateTimeProviderRef = DateTimeProviderName.OFFSET_DATE_TIME_PROVIDER)
 @SpringBootApplication
 class MemberApplication
 

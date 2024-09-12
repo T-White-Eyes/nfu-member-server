@@ -1,8 +1,10 @@
 package com.nfu.member.entity.member
 
 import com.nfu.member.entity.auth.AuthPlatformType
+import com.nfu.member.entity.base.BaseTimeEntity
+import com.nfu.member.entity.base.DeletedTimeEntity
+import com.nfu.member.entity.base.UpdatedTimeEntity
 import jakarta.persistence.*
-import java.time.OffsetDateTime
 
 @Entity
 @Table(name = "member")
@@ -25,7 +27,7 @@ class Member(
 
     @Column(name = "is_include_weekend", columnDefinition = "TINYINT", length = 1)
     val isIncludeWeekend: Boolean,
-) {
+): BaseTimeEntity() {
 
     @Id
     @Column(name = "id", columnDefinition = "INT")
@@ -38,13 +40,4 @@ class Member(
 
     @Column(name = "is_deleted", columnDefinition = "TINYINT", length = 1)
     val isDeleted: Boolean = false
-
-    @Column(name = "created_at")
-    val createdAt: OffsetDateTime = OffsetDateTime.now()
-
-    @Column(name = "updated_at")
-    val updatedAt: OffsetDateTime = OffsetDateTime.now()
-
-    @Column(name = "deleted_at")
-    val deletedAt: OffsetDateTime = OffsetDateTime.now()
 }
