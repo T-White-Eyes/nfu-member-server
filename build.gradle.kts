@@ -5,6 +5,7 @@ object Version {
 	const val SPRING_BOOT_VERSION = "3.3.3"
 	const val JACKSON_MODULE_VERSION = "2.17.2"
 	const val MARIADB_JAVA_CLIENT_VERSION = "3.4.1"
+	const val QUERY_DSL_VERSION = "5.1.0"
 }
 
 plugins {
@@ -16,6 +17,7 @@ plugins {
 	kotlin("jvm") version KOTLIN_VERSION
 	kotlin("plugin.jpa") version KOTLIN_VERSION
 	kotlin("plugin.spring") version SPRING_PLUGIN_VERSION
+	kotlin("kapt") version KOTLIN_VERSION
 	id("org.springframework.boot") version SPRING_BOOT_VERSION
 	id("io.spring.dependency-management") version SPRING_BOOT_DEPENDENCY_MANAGEMENT_VERSION
 }
@@ -45,6 +47,9 @@ dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${Version.NETFLIX_EUREKA_CLIENT_VERSION}")
 
 	implementation("org.mariadb.jdbc:mariadb-java-client:${Version.MARIADB_JAVA_CLIENT_VERSION}")
+
+	implementation("com.querydsl:querydsl-jpa:${Version.QUERY_DSL_VERSION}:jakarta")
+	kapt("com.querydsl:querydsl-apt:${Version.QUERY_DSL_VERSION}:jakarta")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test:${Version.SPRING_BOOT_VERSION}")
 }
