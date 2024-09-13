@@ -42,6 +42,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect:${Version.KOTLIN_VERSION}")
 
 	implementation("org.springframework.boot:spring-boot-starter-web:${Version.SPRING_BOOT_VERSION}")
+	implementation("org.springframework.boot:spring-boot-starter-validation:${Version.SPRING_BOOT_VERSION}")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:${Version.SPRING_BOOT_VERSION}")
 	implementation("org.springframework.cloud:spring-cloud-starter-config:${Version.SPRING_CLOUD_CONFIG_VERSION}")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${Version.NETFLIX_EUREKA_CLIENT_VERSION}")

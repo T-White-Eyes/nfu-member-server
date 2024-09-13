@@ -14,11 +14,11 @@ class BaseTimeEntity {
 
     @CreatedDate
     @Column(name = "created_at")
-    val createdAt: OffsetDateTime = OffsetDateTime.now()
+    lateinit var createdAt: OffsetDateTime
 
     @LastModifiedDate
     @Column(name = "updated_at")
-    val updatedAt: OffsetDateTime = OffsetDateTime.now()
+    lateinit var updatedAt: OffsetDateTime
 
     @Column(name = "deleted_at")
     val deletedAt: OffsetDateTime? = null

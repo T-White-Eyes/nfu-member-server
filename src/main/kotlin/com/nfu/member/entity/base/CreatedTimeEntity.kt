@@ -13,5 +13,5 @@ class CreatedTimeEntity {
 
     @CreatedDate
     @Column(name = "created_at")
-    val createdAt: OffsetDateTime = OffsetDateTime.now()
+    lateinit var createdAt: OffsetDateTime
 }

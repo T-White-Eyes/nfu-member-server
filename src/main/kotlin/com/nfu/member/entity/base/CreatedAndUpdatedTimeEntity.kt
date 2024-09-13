@@ -12,8 +12,8 @@ import java.time.OffsetDateTime
 class CreatedAndUpdatedTimeEntity {
 
     @CreatedDate
-    val createdAt: OffsetDateTime = OffsetDateTime.now()
+    lateinit var createdAt: OffsetDateTime
 
     @LastModifiedDate
-    val updatedAt: OffsetDateTime = OffsetDateTime.now()
+    lateinit var updatedAt: OffsetDateTime
 }

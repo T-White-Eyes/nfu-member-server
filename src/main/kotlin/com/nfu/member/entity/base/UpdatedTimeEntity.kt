@@ -13,5 +13,5 @@ class UpdatedTimeEntity {
 
     @LastModifiedDate
     @Column(name = "updated_at")
-    val updatedAt: OffsetDateTime = OffsetDateTime.now()
+    lateinit var updatedAt: OffsetDateTime
 }
