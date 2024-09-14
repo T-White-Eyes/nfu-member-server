@@ -6,7 +6,6 @@ import com.nfu.member.exception.ApiException
 import com.nfu.member.exception.constant.ApiError
 import com.nfu.member.repository.member.MemberRepository
 import com.nfu.member.repository.member.QMemberRepository
-import com.nfu.member.util.kotlin.alsoIfTrue
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -37,32 +36,14 @@ class MemberService(
     }
 
     @Transactional(readOnly = true)
-    fun verifyNotExistsAuthPlatformId(authPlatformId: String) {
-        existsByAuthPlatformId(authPlatformId)
-            .alsoIfTrue {
-                throw ApiException(ApiError.ALREADY_EXISTS_AUTH_PLATFORM_ID)
-            }
-    }
-
-    @Transactional(readOnly = true)
-    fun verifyNotExistsEmail(email: String) {
-        existsByEmail(email)
-            .alsoIfTrue {
-                throw ApiException(ApiError.ALREADY_EXISTS_EMAIL)
-            }
-    }
-
-    @Transactional(readOnly = true)
-    fun verifyNotExistsNickname(nickname: String) {
-        existsByNickname(nickname)
-            .alsoIfTrue {
-                throw ApiException(ApiError.ALREADY_EXISTS_NICKNAME)
-            }
-    }
-
-    @Transactional(readOnly = true)
     fun getMemberDtoById(memberId: Long): MemberDto {
         return qMemberRepository.findMemberDtoById(memberId)
+            ?: throw ApiException(ApiError.NOT_FOUND_MEMBER)
+    }
+
+    @Transactional(readOnly = true)
+    fun getMemberDtoByEmail(email: String): MemberDto {
+        return qMemberRepository.findMemberDtoByEmail(email)
             ?: throw ApiException(ApiError.NOT_FOUND_MEMBER)
     }
 }

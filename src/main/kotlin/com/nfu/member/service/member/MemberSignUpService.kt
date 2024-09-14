@@ -12,13 +12,6 @@ class MemberSignUpService(
     private val passwordEncoder: PasswordEncoder,
 ) {
 
-    fun verify(memberSignUpRequestDto: MemberSignUpRequestDto) {
-        memberSignUpRequestDto.verify()
-        memberService.verifyNotExistsAuthPlatformId(authPlatformId = memberSignUpRequestDto.authPlatformId)
-        memberService.verifyNotExistsEmail(email = memberSignUpRequestDto.email)
-        memberService.verifyNotExistsNickname(nickname = memberSignUpRequestDto.nickname)
-    }
-
     fun signUp(memberSignUpRequestDto: MemberSignUpRequestDto): MemberDto {
         val member = Member.fromMemberSignUpRequestDto(memberSignUpRequestDto, passwordEncoder)
 
