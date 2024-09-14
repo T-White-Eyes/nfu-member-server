@@ -22,5 +22,7 @@ enum class ApiError(
     ALREADY_EXISTS_EMAIL(HttpStatus.BAD_REQUEST.value(), "-104", "Already Exists Email"),
     ALREADY_EXISTS_NICKNAME(HttpStatus.BAD_REQUEST.value(), "-105", "Already Exists Nickname"),
     ALREADY_EXISTS_AUTH_PLATFORM_ID(HttpStatus.BAD_REQUEST.value(), "-106", "Already Exists Auth Platform Id"),
+
+    NOT_FOUND_MEMBER(HttpStatus.NOT_FOUND.value(), "-107", "Not Found Member"),
    ;
 }

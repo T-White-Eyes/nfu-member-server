@@ -4,7 +4,7 @@ import com.nfu.member.constant.auth.AuthPlatFormType
 import com.nfu.member.entity.member.Member
 import com.querydsl.core.annotations.QueryProjection
 
-class MemberDto @QueryProjection constructor(
+class MemberDto(
     val id: Long,
     val authPlatFormType: AuthPlatFormType,
     val authPlatformId: String,
@@ -12,6 +12,23 @@ class MemberDto @QueryProjection constructor(
     val nickname: String,
     val isIncludeWeekend: Boolean,
 ) {
+
+    @QueryProjection
+    constructor(
+        id: Long,
+        authPlatFormTypeId: Short,
+        authPlatformId: String,
+        email: String,
+        nickname: String,
+        isIncludeWeekend: Boolean,
+    ): this(
+        id = id,
+        authPlatFormType = AuthPlatFormType.getById(authPlatFormTypeId),
+        authPlatformId = authPlatformId,
+        email = email,
+        nickname = nickname,
+        isIncludeWeekend = isIncludeWeekend
+    )
 
     companion object {
 

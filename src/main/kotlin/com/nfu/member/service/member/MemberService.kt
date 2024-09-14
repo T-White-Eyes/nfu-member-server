@@ -1,5 +1,6 @@
 package com.nfu.member.service.member
 
+import com.nfu.member.dto.member.MemberDto
 import com.nfu.member.entity.member.Member
 import com.nfu.member.exception.ApiException
 import com.nfu.member.exception.constant.ApiError
@@ -57,5 +58,11 @@ class MemberService(
             .alsoIfTrue {
                 throw ApiException(ApiError.ALREADY_EXISTS_NICKNAME)
             }
+    }
+
+    @Transactional(readOnly = true)
+    fun getMemberDtoById(memberId: Long): MemberDto {
+        return qMemberRepository.findMemberDtoById(memberId)
+            ?: throw ApiException(ApiError.NOT_FOUND_MEMBER)
     }
 }
