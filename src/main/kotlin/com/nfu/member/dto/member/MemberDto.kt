@@ -43,4 +43,7 @@ class MemberDto(
             )
         }
     }
+
+    fun isMatchAuthPlatformTypeId(authPlatFormTypeId: Short): Boolean = this.authPlatFormType.id != authPlatFormTypeId
+    fun isMatchAuthPlatformId(authPlatformId: String): Boolean = this.authPlatformId != authPlatformId
 }

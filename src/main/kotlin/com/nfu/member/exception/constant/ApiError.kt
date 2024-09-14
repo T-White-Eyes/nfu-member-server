@@ -24,5 +24,8 @@ enum class ApiError(
     ALREADY_EXISTS_AUTH_PLATFORM_ID(HttpStatus.BAD_REQUEST.value(), "-106", "Already Exists Auth Platform Id"),
 
     NOT_FOUND_MEMBER(HttpStatus.NOT_FOUND.value(), "-107", "Not Found Member"),
+
+    NOT_MATCHED_AUTH_PLATFORM_TYPE_ID(HttpStatus.BAD_REQUEST.value(), "-108", "Not Matched Auth Platform Type Id"),
+    NOT_MATCHED_AUTH_PLATFORM_ID(HttpStatus.BAD_REQUEST.value(), "-109", "Not Matched Auth Platform Id"),
    ;
 }

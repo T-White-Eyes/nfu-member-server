@@ -46,4 +46,12 @@ class QMemberRepository(
             .where(member.id.eq(memberId))
             .fetchOne()
     }
+
+    fun findMemberDtoByEmail(email: String): MemberDto? {
+        return queryFactory
+            .select(QDtoFactory.createQMemberDto())
+            .from(member)
+            .where(member.email.eq(email))
+            .fetchOne()
+    }
 }

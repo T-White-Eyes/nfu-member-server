@@ -6,6 +6,7 @@ object Version {
 	const val JACKSON_MODULE_VERSION = "2.17.2"
 	const val MARIADB_JAVA_CLIENT_VERSION = "3.4.1"
 	const val QUERY_DSL_VERSION = "5.1.0"
+	const val JWT_VERSION = "0.12.6"
 }
 
 plugins {
@@ -51,6 +52,10 @@ dependencies {
 
 	implementation("com.querydsl:querydsl-jpa:${Version.QUERY_DSL_VERSION}:jakarta")
 	kapt("com.querydsl:querydsl-apt:${Version.QUERY_DSL_VERSION}:jakarta")
+
+	implementation("io.jsonwebtoken:jjwt-api:${Version.JWT_VERSION}")
+	implementation("io.jsonwebtoken:jjwt-impl:${Version.JWT_VERSION}")
+	implementation("io.jsonwebtoken:jjwt-jackson:${Version.JWT_VERSION}")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test:${Version.SPRING_BOOT_VERSION}")
 }
