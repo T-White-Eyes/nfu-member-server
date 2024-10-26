@@ -26,10 +26,9 @@ class MemberController(
 
     @RequestMapping(method = [RequestMethod.POST], value = [""])
     fun signUp(@RequestBody memberSignUpRequestDto: MemberSignUpRequestDto): ResponseEntity<*> {
-        val memberDto = memberValidationService.validateForSignUp(memberSignUpRequestDto)
-            .let {
-                memberSignUpService.signUp(memberSignUpRequestDto)
-            }
+        memberValidationService.validateForSignUp(memberSignUpRequestDto)
+
+        val memberDto = memberSignUpService.signUp(memberSignUpRequestDto)
 
         return ResponseEntity(memberDto, HttpStatusCode.valueOf(HttpStatus.CREATED.value()))
     }
