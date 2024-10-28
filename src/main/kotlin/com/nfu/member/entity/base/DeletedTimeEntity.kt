@@ -7,7 +7,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.time.OffsetDateTime
 
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener::class)
 class DeletedTimeEntity {
 
     @Column(name = "deleted_at")
